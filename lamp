@@ -1,0 +1,23 @@
+#!/bin/bash
+
+mkdir /var/www/testlamp.ru
+sudo apt-get install curl
+cd /tmp
+curl -O https://ru.wordpress.org/latest-ru_RU.tar.gz
+tar xzvf latest-ru_RU.tar.gz
+cp -a /tmp/wordpress/. /var/www/test.ru/
+echo 
+"<VirtualHost *:80>
+ServerName testlamp.ru
+ServerAlias www.testlamp.tu
+ServerAdmin lamp@gmail.com
+DocumentRoot /var/www/testlamp.ru
+<Directory /var/www/testlamp.ru>
+Options -Indexes +FollowSymLinks
+AllowOverride ALL
+</Directory>
+ErrorLog ${APACHE_LOG_DIR}/testlamp.ru-error.log
+CustomLog ${APACHE_LOG_DIR}/testlamp.ru-access.log combined
+</VirtualHost>" /var/apache2/sites-available/testlamp.ru.conf
+sudo a2ensite testlamp.ru
+systemctl restart apache2.service
