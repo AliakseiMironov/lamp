@@ -5,7 +5,7 @@ sudo apt-get install curl
 cd /tmp
 curl -O https://ru.wordpress.org/latest-ru_RU.tar.gz
 tar xzvf latest-ru_RU.tar.gz
-cp -a /tmp/wordpress/. /var/www/test.ru/
+cp -a /tmp/wordpress/. /var/www/testlamp.ru/
 echo 
 "<VirtualHost *:80>
 ServerName testlamp.ru
