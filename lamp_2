@@ -50,6 +50,7 @@ echo 'proxy_pass         "http://127.0.0.1.8080";' >> /etc/nginx/sites-available
 echo '}' >> /etc/nginx/sites-available/project1
 echo '}' >> /etc/nginx/sites-available/project1
 
+#Удаление default  и привязка
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 ln /etc/nginx/sites-available/project /etc/nginx/sites-enabled/project
